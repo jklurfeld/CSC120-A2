@@ -2,11 +2,15 @@
 from calendar import c
 from typing import Dict, Union
 
+from computer import Computer
+from oo_resale_shop import ResaleShop
+
 # Import the functions we wrote in procedural_computer_shop.py
-from procedural_computer_shop import buy, update_price, sell, print_inventory
+# from procedural_computer_shop import buy, update_price, sell, print_inventory
 
 # # Import the functions we wrote in procedural_resale_shop.py, renaming them with an 'r' prefix
 from procedural_resale_shop import buy as rbuy, update_price as rupdate_price, sell as rsell, print_inventory as rprint_inventory, refurbish
+
 
 """ This helper function takes in a bunch of information about a computer,
     and packages it up into a python dictionary to make it easier to store
@@ -32,7 +36,35 @@ def create_computer(description: str,
     }
 
 def main():
+
+
+    inventory : Dict[int, Dict[str, Union[str, int, bool]]] = {}
+
+    # create a computer
+    mac = Computer("Mac Pro (Late 2013)",
+        "3.5 GHc 6-Core Intel Xeon E5",
+        1024, 64,
+        "macOS Big Sur", 2013, 1500)
     
+    print(mac.description)
+
+    # make a resale shop
+    shop = ResaleShop(inventory)
+
+    print(shop.buy(mac))
+    shop.print_inventory()
+
+    shop.update_price(1, 1000)
+    print("updated price:", mac.price)
+
+    shop.refurbish(1, "macOS monterey")
+    print("price after refurbish:", mac.price, "and OS after refurbish:", mac.operating_system)
+
+    shop.refurbish(3)
+    
+
+
+"""
     # First, let's make a computer
     computer = create_computer(
         "Mac Pro (Late 2013)",
@@ -68,6 +100,7 @@ def main():
     print("Checking inventory...")
     rprint_inventory()
     print("Done.\n")
+"""
 
 # Calls the main() function when this file is run
 if __name__ == "__main__": main()

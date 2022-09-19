@@ -64,6 +64,12 @@ def print_inventory():
     else:
         print("No inventory to display.")
 
+"""
+Takes in item id and (optional) the new operating system
+It changes the price of the computer based on the year it was made
+Updates the operating system if one was given, prints error message if item isn't found
+"""
+
 def refurbish(item_id: int, new_os: Optional[str] = None):
     if item_id in inventory:
         computer = inventory[item_id] # locate the computer

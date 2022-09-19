@@ -22,12 +22,14 @@ class Computer:
         self.price = price
 
     # What methods will you need?
-
+"""
     def update_price(self, item_id: int, new_price: int):
-        if item_id in self.inventory:
+        if item_id <= itemID:
             self.inventory[item_id]["price"] = new_price
         else:
             print("Item", item_id, "not found. Cannot update price.")
+
+
 
     def refurbish(self, item_id: int, new_os: Optional[str] = None):
         if item_id in self.inventory:
@@ -45,3 +47,5 @@ class Computer:
                 computer["operating_system"] = new_os # update details after installing new OS
         else:
             print("Item", item_id, "not found. Please select another item to refurbish.")
+
+"""
