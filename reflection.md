@@ -1,3 +1,5 @@
 Use this file to record your reflection on this assignment. 
 
 What worked, what didn't, what advice would you give someone taking this course in the future?
+
+I worked on this consistently throughout the week, which was good. I was very hesitant to put all of the methods in the resale shop class, which added some time spent on the assignment. I was hesitant to do it because on one hand I knew that you said that where some of the methods went was a design choice, but on the other hand, based on the rubric, it seemed like at least one method should be in the computer class. In the end, I couldn't think of any other way to code it with it the code working properly. Working on this assignment with other people from the beginning was also helpful, because not only did it help me through the problem, but it got me to start the problem early and designate time to working on CS. 

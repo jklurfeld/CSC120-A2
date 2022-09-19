@@ -3,39 +3,45 @@ from computer import Computer
 
 class ResaleShop:
 
-    # What attributes will it need?
+    # Makes and initializes the global variable itemID so it can be accessed by all 
+    # files in the program
     global itemID
     itemID = 0
 
-    # How will you set up your constructor?
-    # Remember: in python, all constructors have the same name (__init__)
+    # Constructor for a resale shop object
+    # takes in an inventory, which is a dictionary
     def __init__(self, inventory : Dict[int, Dict[str, Union[str, int, bool]]]):
         self.inventory = inventory
 
-    # What methods will you need?
-
+    # Takes in an item_id and a new price, updates the price of the associated
+    # computer if it is the inventory, prints error message otherwise
     def update_price(self, item_id: int, new_price: int):
         if item_id in self.inventory:
             self.inventory[item_id].price = new_price
         else:
             print("Item", item_id, "not found. Cannot update price.")
 
+    # Takes in a Dict containing all the information about a computer,
+    # adds it to the inventory, returns the assigned item_id
     def buy(self, computer: Computer):
         global itemID
         itemID += 1 # increment itemID
         self.inventory[itemID] = computer
         return itemID
     
+    # prints all the items in the inventory (if it isn't empty), prints error otherwise
     def print_inventory(self):
     # If the inventory is not empty
         if self.inventory:
             # For each item
             for item_id in self.inventory:
                 # Print its details
-                print(f'Item ID: {item_id} : {self.inventory[item_id]}')
+                print(f'Item ID: {item_id} : {self.inventory[item_id].description}')
         else:
             print("No inventory to display.")
 
+    # Takes in an item_id, removes the associated computer if it is the inventory, 
+    # prints error message otherwise
     def sell(self, item_id: int):
         if item_id in self.inventory:
             del self.inventory[item_id]
@@ -43,6 +49,9 @@ class ResaleShop:
         else: 
             print("Item", item_id, "not found. Please select another item to sell.")
 
+    # Takes in item id and the new operating system (OS optional)
+    # Changes the price of the computer based on the year it was made
+    # Updates the operating system if one was given, prints error message if item isn't found
     def refurbish(self, item_id: int, new_os: Optional[str] = None):
         if item_id in self.inventory:
             computer = self.inventory[item_id] # locate the computer
