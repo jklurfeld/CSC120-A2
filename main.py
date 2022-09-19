@@ -81,12 +81,12 @@ def main():
     # Add it to the resale store's inventory
     print("Buying", computer["description"])
     print("Adding to inventory...")
-    computer_id = rbuy(computer)
+    computer_id = buy(computer)
     print("Done.\n")
 
     # Make sure it worked by checking inventory
     print("Checking inventory...")
-    rprint_inventory()
+    print_inventory()
     print("Done.\n")
 
     # Now, let's refurbish it
@@ -98,7 +98,16 @@ def main():
 
     # Make sure it worked by checking inventory
     print("Checking inventory...")
-    rprint_inventory()
+    print_inventory()
+    print("Done.\n")
+    
+    # Now, let's sell it!
+    print("Selling Item ID:", computer_id)
+    sell(computer_id)
+    
+    # Make sure it worked by checking inventory
+    print("Checking inventory...")
+    print_inventory()
     print("Done.\n")
 """
 
